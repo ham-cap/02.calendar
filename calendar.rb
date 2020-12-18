@@ -19,30 +19,31 @@ end
 
 first_day = Date.parse("#{year}-#{month}-1")
 final_day = Date.new(year.to_i, month.to_i, -1)
-days = (first_day..final_day)
 days_array = []
 if first_day.monday?
-  days_array.push("　　#{first_day.day}")
+  days_array.push("　　#{first_day.day}　")
 elsif first_day.tuesday?
-  days_array.push("　　　　#{first_day.day}")
+  days_array.push("　　　　#{first_day.day}　")
 elsif first_day.wednesday?
-  days_array.push("　　　　　　#{first_day.day}")
+  days_array.push("　　　　　　#{first_day.day}　")
 elsif first_day.thursday?
-  days_array.push("　　　　　　　　#{first_day.day}")
+  days_array.push("　　　　　　　　#{first_day.day}　")
 elsif first_day.friday?
-  days_array.push("　　　　　　　　　　#{first_day.day}")
+  days_array.push("　　　　　　　　　　#{first_day.day}　")
 elsif first_day.saturday?
   days_array.push("　　　　　　　　　　　　#{first_day.day}\n")
 else first_day.sunday?
-  days_array.push("#{first_day.day}")
-end
-puts days_array
-  
+  days_array.push("#{first_day.day}　")
 end
 
-# 曜日の判定処理
-# if day.saturday?
-#   print "#{day.day}\n"
-# else
-#   print "#{day.day}　"
-# end
+second_day = Date.parse("#{year}-#{month}-2")
+days = (second_day..final_day)
+  
+days.each do |day|
+  if day.saturday?
+    days_array.push("#{day.day}\n")
+  else
+    days_array.push("#{day.day} ")
+  end
+end
+
